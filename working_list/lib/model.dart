@@ -36,6 +36,7 @@ List<String> allBuildingName = [
   '9号館'
 ]; // 全棟を管理（棟一覧）
 List<String> checkinName = [
+  /*
   '1号館',
   '2号館',
   '3号館',
@@ -62,11 +63,31 @@ List<String> checkinName = [
   '2号館',
   '3号館',
   '5号館',
-  '6号館',
+  '6号館',*/
 ]; // 入館の棟を管理
-List<String> replacementName = []; // 入れ替えの棟を管理
-List<String> checkoutName = []; // 出の棟を管理
-List<String> continueName = []; // 連泊の棟を管理
+List<String> replacementName = [
+  '6号館',
+]; // 入れ替えの棟を管理
+List<String> checkoutName = [
+  '6号館',
+]; // 出の棟を管理
+List<String> continueName = [
+  '6号館',
+]; // 連泊の棟を管理
+
+List<String> workerList = [
+  '西川',
+  '小椋',
+  '古川',
+  '黒澤',
+  '岩崎',
+  '石澤',
+  '笠間',
+  '渡部',
+  '吉川',
+  '遠藤',
+  '林部'
+];
 
 //各棟のプレートの見た目を統一するための関数
 Widget plateLayout(String name) {

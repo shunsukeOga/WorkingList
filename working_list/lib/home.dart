@@ -13,7 +13,7 @@ class _HomeState extends State<Home> {
   Widget assignmentWidget(String name) {
     return ConstrainedBox(
       constraints: const BoxConstraints(
-        minHeight: 190,
+        minHeight: 100,
         // minWidth: 1200,
       ),
       child: Container(
@@ -22,9 +22,9 @@ class _HomeState extends State<Home> {
           color: const Color.fromRGBO(63, 149, 133, 1),
           borderRadius: BorderRadius.circular(20),
         ),
-        width: (MediaQuery.of(context).size.width - 100) * 0.8,
+        width: (MediaQuery.of(context).size.width - 100) * 0.6,
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             // 各割り当て業務(入館・入れ替え・出・連泊)のWidget
             ConstrainedBox(
@@ -41,8 +41,7 @@ class _HomeState extends State<Home> {
                           : null,
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    width:
-                        (MediaQuery.of(context).size.width - 100) * 0.8 * 0.6,
+                    width: (MediaQuery.of(context).size.width - 100) * 0.5,
                     child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -119,6 +118,7 @@ class _HomeState extends State<Home> {
               ),
             ),
             //　作業者一覧のWidget
+            /*
             ConstrainedBox(
               constraints: const BoxConstraints(minWidth: 300, minHeight: 160),
               child: DragTarget(
@@ -163,6 +163,7 @@ class _HomeState extends State<Home> {
                 },
               ),
             ),
+            */
           ],
         ),
       ),
@@ -197,7 +198,7 @@ class _HomeState extends State<Home> {
                 //棟一覧Widget
                 Container(
                   // 型崩れ防止のために最小サイズを指定
-                  constraints: const BoxConstraints(minWidth: 200),
+                  constraints: const BoxConstraints(minWidth: 100),
                   margin: const EdgeInsets.only(
                     left: 10,
                     top: 10,
@@ -283,17 +284,80 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                 ),
-                Column(
-                  children: [
-                    // 入館用の割り当てWidget
-                    assignmentWidget('入館'),
-                    // 入れ替え用の割り当てWidget
-                    assignmentWidget('入れ替え'),
-                    // 出用の割り当てWidget
-                    assignmentWidget('出'),
-                    // 連泊用の割り当てWidget
-                    assignmentWidget('連泊'),
-                  ],
+                SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      // 入館用の割り当てWidget
+                      assignmentWidget('入館'),
+                      // 入れ替え用の割り当てWidget
+                      assignmentWidget('入れ替え'),
+                      // 出用の割り当てWidget
+                      assignmentWidget('出'),
+                      // 連泊用の割り当てWidget
+                      assignmentWidget('連泊'),
+                    ],
+                  ),
+                ),
+                Container(
+                  // 型崩れ防止のために最小サイズを指定
+                  constraints: const BoxConstraints(minWidth: 180),
+                  margin: const EdgeInsets.only(
+                    right: 10,
+                    top: 10,
+                    bottom: 10,
+                  ),
+                  decoration: BoxDecoration(
+                    color: const Color.fromRGBO(63, 149, 133, 1),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  width: (MediaQuery.of(context).size.width - 100) * 0.2,
+                  height: MediaQuery.of(context).size.height * 0.9,
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        Container(
+                          alignment: Alignment.center,
+                          margin: const EdgeInsets.all(10),
+                          child: const Text("作業者一覧",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 30,
+                                  color: Colors.white)),
+                        ),
+                        Container(
+                          margin: const EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            border: checkBorder
+                                ? Border.all(
+                                    color: Colors.red,
+                                    width: 10,
+                                  )
+                                : null,
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          height:
+                              MediaQuery.of(context).size.height * 0.9 - 100,
+                          width: (MediaQuery.of(context).size.width - 100) *
+                              0.8 *
+                              0.6,
+                          child: Container(
+                            margin: const EdgeInsets.all(10),
+                            child: SingleChildScrollView(
+                              child: Wrap(
+                                alignment: WrapAlignment.center,
+                                children: [
+                                  for (final buildingName in workerList)
+                                    Container(
+                                      child: plateLayout(buildingName),
+                                    ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ],
             ),

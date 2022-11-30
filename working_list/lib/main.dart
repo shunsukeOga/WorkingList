@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
 import 'home.dart';
+import 'package:flutter/services.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    //許可する向きを指定する。
+    //  DeviceOrientation.portraitUp,//上向きを許可
+    //  DeviceOrientation.portraitDown,//下向きを許可
+    DeviceOrientation.landscapeLeft, //左向きを許可
+    DeviceOrientation.landscapeRight, //右向きを許可
+  ]);
   runApp(const MyApp());
 }
 

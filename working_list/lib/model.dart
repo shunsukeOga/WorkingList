@@ -23,9 +23,6 @@ String checkWeekday() {
 
 bool checkBorder = false;
 List<String> allBuildingName = [
-  '7号館',
-  '8号館',
-  '9号館',
   '1号館',
   '2号館',
   '3号館',
@@ -35,46 +32,12 @@ List<String> allBuildingName = [
   '8号館',
   '9号館'
 ]; // 全棟を管理（棟一覧）
-List<String> checkinName = [
-  /*
-  '1号館',
-  '2号館',
-  '3号館',
-  '5号館',
-  '6号館',
-  '7号館',
-  '8号館',
-  '9号館',
-  '1号館',
-  '2号館',
-  '3号館',
-  '5号館',
-  '6号館',
-  '7号館',
-  '8号館',
-  '9号館',
-  '1号館',
-  '2号館',
-  '3号館',
-  '5号館',
-  '6号館',
-  '9号館',
-  '1号館',
-  '2号館',
-  '3号館',
-  '5号館',
-  '6号館',*/
-]; // 入館の棟を管理
-List<String> replacementName = [
-  '6号館',
-]; // 入れ替えの棟を管理
-List<String> checkoutName = [
-  '6号館',
-]; // 出の棟を管理
-List<String> continueName = [
-  '6号館',
-]; // 連泊の棟を管理
+List<String> checkinName = []; // 入館の棟を管理
+List<String> replacementName = []; // 入れ替えの棟を管理
+List<String> checkoutName = []; // 出の棟を管理
+List<String> continueName = []; // 連泊の棟を管理
 
+//後々、DBからの取得を考えている
 List<String> workerList = [
   '西川',
   '小椋',
@@ -88,6 +51,9 @@ List<String> workerList = [
   '遠藤',
   '林部'
 ];
+
+//作業者一覧に表示する用
+List<String> todayWorkerList = [];
 
 //各棟のプレートの見た目を統一するための関数
 Widget plateLayout(String name) {

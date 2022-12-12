@@ -65,6 +65,7 @@ class _TodayWorkerState extends State<TodayWorker> {
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(
+        //戻るボタンの配置
         leading: ElevatedButton(
           style: ElevatedButton.styleFrom(
               primary: const Color.fromRGBO(63, 149, 133, 1),
